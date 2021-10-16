@@ -1,7 +1,7 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 
 public class ThingSpawner : MonoBehaviour
 {
@@ -11,6 +11,10 @@ public class ThingSpawner : MonoBehaviour
     public float startingXPosition = 10f;
 
     public float despawnXPosition = -10f;
+
+    public float minYSpawnLocation = -2f;
+
+    public float maxYSpawnLocation = -6f;
 
     [Range(.5f, 3f)]
     public float spawnInterval = 1.0f;
@@ -57,6 +61,6 @@ public class ThingSpawner : MonoBehaviour
 
     private Vector3 GetSpawnPosition()
     {
-        return new Vector3(startingXPosition, -4);
+        return new Vector3(startingXPosition, Random.Range(minYSpawnLocation, maxYSpawnLocation));
     }
 }
