@@ -16,7 +16,6 @@ public class SelfMover : MonoBehaviour
 
         if (gameObject.transform.position.x < -10)
         {
-            Debug.Log("Bye bye");
             Destroy(gameObject);
         }
     }
