@@ -9,7 +9,7 @@ namespace Service
     {
         private static int score = 0;
 
-        private static List<Action<int>> listeners = new List<Action<int>>();
+        private static readonly List<Action<int>> listeners = new List<Action<int>>();
 
         public static void Increment()
         {

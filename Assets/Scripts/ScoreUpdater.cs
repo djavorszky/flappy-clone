@@ -7,7 +7,6 @@ public class ScoreUpdater : MonoBehaviour
 
     private Text textMenu;
 
-    // Start is called before the first frame update
     void Start()
     {
         textMenu = GetComponent<Text>();

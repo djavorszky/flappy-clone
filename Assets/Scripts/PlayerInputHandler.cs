@@ -12,10 +12,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private bool isJumpPressed = false;
 
-
     private void Start() => rb = gameObject.GetComponent<Rigidbody2D>();
 
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -34,5 +32,4 @@ public class PlayerInputHandler : MonoBehaviour
     }
 
     private Vector2 GetJumpVelocity() => Vector2.ClampMagnitude(rb.velocity + Vector2.up * flapForce, maxVerticalSpeed);
-
 }

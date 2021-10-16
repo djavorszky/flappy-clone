@@ -1,11 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class ThingSpawner : MonoBehaviour
 {
-
     public GameObject thingToSpawn;
 
     public float startingXPosition = 10f;
@@ -20,16 +17,15 @@ public class ThingSpawner : MonoBehaviour
     public float spawnInterval = 1.0f;
 
     private float timer;
-    private HashSet<GameObject> entities = new HashSet<GameObject>();
+    private readonly HashSet<GameObject> entities = new HashSet<GameObject>();
 
     private void Start()
     {
         timer = spawnInterval;
 
-        entities.Add(Instantiate(thingToSpawn, GetSpawnPosition(), Quaternion.identity));
+        entities.Add(Instantiate(thingToSpawn, SpawnPosition, Quaternion.identity));
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (timer > 0)
@@ -38,7 +34,7 @@ public class ThingSpawner : MonoBehaviour
         }
         else
         {
-            entities.Add(Instantiate(thingToSpawn, GetSpawnPosition(), Quaternion.identity));
+            entities.Add(Instantiate(thingToSpawn, SpawnPosition, Quaternion.identity));
             timer = spawnInterval;
 
             DespawnEntities();
@@ -59,8 +55,5 @@ public class ThingSpawner : MonoBehaviour
         });
     }
 
-    private Vector3 GetSpawnPosition()
-    {
-        return new Vector3(startingXPosition, Random.Range(minYSpawnLocation, maxYSpawnLocation));
-    }
+    private Vector3 SpawnPosition => new Vector3(startingXPosition, Random.Range(minYSpawnLocation, maxYSpawnLocation));
 }
