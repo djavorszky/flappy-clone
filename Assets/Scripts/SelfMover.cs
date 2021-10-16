@@ -9,14 +9,10 @@ public class SelfMover : MonoBehaviour
     public float gameSpeed = 5f;
 
 
+    public float despawnLocationOnX = -15;
 
     void Update()
     {
         gameObject.transform.position += Vector3.left * gameSpeed * Time.deltaTime;
-
-        if (gameObject.transform.position.x < -10)
-        {
-            Destroy(gameObject);
-        }
     }
 }
