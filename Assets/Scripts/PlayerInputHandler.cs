@@ -33,8 +33,6 @@ public class PlayerInputHandler : MonoBehaviour
         }
     }
 
-    private Vector2 GetJumpVelocity()
-    {
-        return Vector2.ClampMagnitude(rb.velocity + Vector2.up * flapForce, maxVerticalSpeed);
-    }
+    private Vector2 GetJumpVelocity() => Vector2.ClampMagnitude(rb.velocity + Vector2.up * flapForce, maxVerticalSpeed);
+
 }
