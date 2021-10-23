@@ -1,17 +1,16 @@
 using UnityEngine;
 using UnityEngine.UI;
-using Service;
 
 public class ScoreUpdater : MonoBehaviour
 {
+
+    public IntData score;
 
     private Text textMenu;
 
     void Start()
     {
         textMenu = GetComponent<Text>();
-        textMenu.text = "Score: 0";
-
-        ScoreService.OnScoreChange(score => textMenu.text = $"Score: {score}");
+        textMenu.text = $"Score: {score.Value}";
     }
 }

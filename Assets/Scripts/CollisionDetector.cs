@@ -1,13 +1,12 @@
 
 using UnityEngine;
 using Constants;
-using Service;
 
 public class CollisionDetector : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == Tags.AddPoint)
+        if (collision.gameObject.CompareTag(Tags.AddPoint))
         {
             DispatchPointAddEvent();
         }
@@ -15,7 +14,7 @@ public class CollisionDetector : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == Tags.GameOver)
+        if (collision.gameObject.CompareTag(Tags.GameOver))
         {
             HandleGameOver();
         }
@@ -23,7 +22,7 @@ public class CollisionDetector : MonoBehaviour
 
     private void DispatchPointAddEvent()
     {
-        ScoreService.Increment();
+        Debug.Log("Increment!");
     }
 
     private void HandleGameOver()
