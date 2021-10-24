@@ -7,12 +7,18 @@ public class CollisionDetector : MonoBehaviour
 {
 
     public UnityEvent scoreEvent = new UnityEvent();
+    public UnityEvent gameOverEvent = new UnityEvent();
+    public UnityEvent boingEvent = new UnityEvent();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(Tags.AddPoint))
         {
             scoreEvent.Invoke();
+        } 
+        else if (collision.gameObject.CompareTag(Tags.Mun))
+        {
+            boingEvent.Invoke();
         }
     }
 
@@ -20,14 +26,9 @@ public class CollisionDetector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(Tags.GameOver))
         {
-            HandleGameOver();
+            Debug.Log("Game Over :c");
+
+            gameOverEvent.Invoke();
         }
     }
-
-
-    private void HandleGameOver()
-    {
-        Debug.Log("Game Over :c");
-    }
-
 }
