@@ -4,11 +4,14 @@ using Constants;
 
 public class CollisionDetector : MonoBehaviour
 {
+
+    public IntData score;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(Tags.AddPoint))
         {
-            DispatchPointAddEvent();
+            score.Increment();
         }
     }
 
@@ -20,10 +23,6 @@ public class CollisionDetector : MonoBehaviour
         }
     }
 
-    private void DispatchPointAddEvent()
-    {
-        Debug.Log("Increment!");
-    }
 
     private void HandleGameOver()
     {

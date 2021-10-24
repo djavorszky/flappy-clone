@@ -1,9 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Int Data", menuName = "Primitive/Int")]
-public class IntData : ScriptableObject
+public class IntData : BaseData<int>
 {
-    public int Value;
+    public int Increment()
+    {
+        Value++;
+
+        NotifyListeners(Value);
+        
+        return Value;
+    }
+
+
+    private void OnDestroy()
+    {
+        Value = 0;
+    }
 }

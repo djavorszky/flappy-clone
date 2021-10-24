@@ -10,7 +10,11 @@ public class ScoreUpdater : MonoBehaviour
 
     void Start()
     {
+        score.Value = 0;
+
         textMenu = GetComponent<Text>();
-        textMenu.text = $"Score: {score.Value}";
+        textMenu.text = "Score: 0";
+
+        score.OnChange(newScore => textMenu.text = $"Score: {newScore}");
     }
 }
