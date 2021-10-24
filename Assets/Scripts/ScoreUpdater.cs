@@ -1,20 +1,16 @@
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class ScoreUpdater : MonoBehaviour
 {
+    public TMP_Text textMenu;
+    
+    private int score = 0;
 
-    public IntData score;
-
-    private Text textMenu;
-
-    void Start()
+    public void Increment()
     {
-        score.Value = 0;
+        score++;
 
-        textMenu = GetComponent<Text>();
-        textMenu.text = "Score: 0";
-
-        score.OnChange(newScore => textMenu.text = $"Score: {newScore}");
+        textMenu.text = $"Score: {score}";
     }
 }

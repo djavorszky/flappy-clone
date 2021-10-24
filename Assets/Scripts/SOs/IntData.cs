@@ -11,10 +11,4 @@ public class IntData : BaseData<int>
         
         return Value;
     }
-
-
-    private void OnDestroy()
-    {
-        Value = 0;
-    }
 }

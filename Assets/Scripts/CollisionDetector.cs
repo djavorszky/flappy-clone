@@ -1,17 +1,18 @@
 
 using UnityEngine;
+using UnityEngine.Events;
 using Constants;
 
 public class CollisionDetector : MonoBehaviour
 {
 
-    public IntData score;
+    public UnityEvent scoreEvent = new UnityEvent();
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag(Tags.AddPoint))
         {
-            score.Increment();
+            scoreEvent.Invoke();
         }
     }
 
